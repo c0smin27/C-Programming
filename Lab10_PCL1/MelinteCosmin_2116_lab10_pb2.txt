@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main(int argc, char* argv[])
+{
+	if (argc == 1)
+	{
+		printf("\n Nu ati introdus valori!\n\n");
+		return;
+	}
+	else
+	{
+		if (argc < 5)
+		{
+			printf("\n Introduceti doi parametri intregi si doi flotanti din linia de comanda\n\n");
+			return;
+		}
+		printf("\n Suma elementelor intregi este: %d", (atoi(argv[1]) + atoi(argv[2])));
+		printf("\n Produsul elementelor intregi este: %d", (atoi(argv[1]) * atoi(argv[2])));
+		printf("\n\n Suma elementelor reale este: %.2f", (atof(argv[3]) + atof(argv[4])));
+		printf("\n Produsul elementelor reale este: %.2f\n\n", (atof(argv[3]) * atof(argv[4])));
+	}
+}
