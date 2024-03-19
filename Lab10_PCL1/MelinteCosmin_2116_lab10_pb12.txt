@@ -1,0 +1,63 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define MAX 10
+
+void citire(int* p, int n);
+void schimbare(int* p1, int* p2, int n, int j, int k);
+void afisare(int* p, int n);
+
+void main(void)
+{
+	int v1[MAX][MAX], v2[MAX][MAX], *pv1 = &v1[0][0], *pv2 = &v2[0][0], n, k, j;
+	printf("\n Introduceti dimensiunea matricei: ");
+	scanf_s("%d", &n);
+	printf("\n Introduceti elementele matricei:\n");
+	citire(pv1, n);
+	printf("\n Introduceti liniile pentru interschimbare: ");
+	scanf_s("%d %d", &j, &k);
+	schimbare(pv1, pv2, n, j, k);
+	printf("\n Matricea initiala: ");
+	afisare(pv1, n);
+	printf("\n");
+	printf("\n Matricea dupa interschimbare: ");
+	afisare(pv2, n);
+	printf("\n\n");
+}
+
+void citire(int* p, int n)
+{
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+		{
+			printf("\t Elementul [%d %d]: ", i + 1, j + 1);
+			scanf_s("%d", (p + i * MAX + j));
+		}
+}
+
+void schimbare(int* p1, int* p2, int n, int j, int k)
+{
+	int aux;
+	j--;
+	k--;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+			*(p2 + i * MAX + j) = *(p1 + i * MAX + j);
+	}
+	for (int i = 0; i < n; i++)
+	{
+		aux = *(p2 + j * MAX + i);
+		*(p2 + j * MAX + i) = *(p2 + k * MAX + i);
+		*(p2 + k * MAX + i) = aux;
+	}
+}
+
+void afisare(int* p, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			printf(" %d ", *(p + i * MAX + j));
+	}
+}

@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+void main(int x, char** y)
+{
+	char sir[255];
+	sir[0] = '\0';
+	for (int i = 1; i < x; i++)
+	{
+		strcat(sir, *(y + i));
+	}
+	printf("\nSirul rezultat din concatenarea celorlalte siruri este: %s\n", sir);
+}

@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <stdlib.h>
+
+void main()
+{
+	char mic[] = "Valoare prea mica";
+	char mare[] = "Valoare prea mare";
+	char corect[] = "Valoare corecta";
+	char* p[3];
+	int x, r;
+	p[0] = _strdup(mic);
+	p[1] = _strdup(mare);
+	p[2] = _strdup(corect);
+	r = rand() % 100 + 1;
+	printf("\nIntroduceti un numar intre 1 si 100: ");
+	scanf_s("%d", &x);
+	while (x != r)
+	{
+		if (x < r)
+			printf("%s", p[0]);
+		else
+			printf("%s", p[1]);
+		printf("\n");
+		scanf_s("%d", &x);
+	}
+	printf("%s", p[2]);
+	printf("\n");
+}

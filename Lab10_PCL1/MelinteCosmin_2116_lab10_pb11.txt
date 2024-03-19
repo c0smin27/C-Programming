@@ -1,0 +1,38 @@
+#define _CTR_SECURE_NO_WARNINGS
+#include<stdio.h>
+#define DIM 255
+
+void citire(int*, int n);
+int elemNegative(int*, int n);
+
+void main()
+{
+	int a[DIM][DIM], n, i, s, *pa = &a[0][0];
+	printf("\n Introduceti dimensiunea matricei: ");
+	scanf_s("%d", &n);
+	printf("\n");
+	citire(pa, n);
+	printf("\n Exista %d elemente negative deasupra diagonalei secundare.", elemNegative(pa, n));
+	printf("\n");
+}
+
+void citire(int* a, int n)
+{
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+		{
+			printf("\t Introduceti elementul [%d %d]: ", i + 1, j + 1);
+			scanf_s("%d", (a + i * n + j));
+		}
+}
+
+int elemNegative(int* a, int n)
+{
+	int s = 0;
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			if (i + j < n)
+				if (*(a + i * n + j) < 0)
+					s++;
+	return s;
+}
