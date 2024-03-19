@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+float serie(float, float);
+float paralel(float, float);
+
+int main()
+{
+	float r1, r2, s, p;
+
+	printf("\n Introduceti valoarea rezistentei R1: ");
+	scanf_s("%f", &r1);
+	
+	printf(" Introduceti valoarea rezistentei R2: ");
+	scanf_s("%f", &r2);
+	
+	s = serie(r1, r2);
+	p = paralel(r1, r2);
+	
+	printf("\n Rezistenta echivalenta in serie este: %10.3f", s);
+	printf("\n Rezistenta echivalenta in paralel este: %8.3f\n\n", p);
+}
+
+float serie(float x, float y)
+{
+	return x + y;
+}
+
+float paralel(float x, float y)
+{
+	return (x * y) / (x + y);
+}
