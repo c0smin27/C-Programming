@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int a, nr;
+
+int main()
+{
+	printf("Introduceti un numar intreg: ");
+	scanf_s("%d", &a);
+	while (a > 0)
+	{
+		if (!(a % 2))
+		nr++;
+		a = a >> 1;
+	}
+	printf("Exista %d zero(uri) in reprezentarea binara a numarului introdus.\n", nr);
+}

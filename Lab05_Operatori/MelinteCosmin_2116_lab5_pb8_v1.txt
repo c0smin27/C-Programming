@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <ctype.h> 
+
+int i;
+char cuvant[100];
+char caracter;
+
+int main()
+{
+    printf("Introduceti o serie de litere mici:\n");
+    gets_s(cuvant);
+    while (cuvant[i])
+    {
+        caracter = cuvant[i];
+        printf("%c", toupper(caracter));
+        i++;
+    }
+    return 0;
+}

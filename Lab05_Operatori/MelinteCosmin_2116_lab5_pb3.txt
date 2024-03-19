@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int i;
+unsigned char a;
+
+int main()
+{
+	printf("Introduceti un caracter: ");
+	scanf_s("%c", &a);
+	for(i=1; i<=sizeof(a)*8; i++)
+	{
+		printf("Bitul de pe pozitia %d este %d \n", i, a%2);
+		a = a >> 1;
+	}
+}

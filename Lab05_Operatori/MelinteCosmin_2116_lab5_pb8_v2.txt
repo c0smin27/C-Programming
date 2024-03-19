@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
+char cuvant[100];
+int i;
+
+int main()
+{
+    printf("Introduceti o serie de litere mici:\n");
+    gets_s(cuvant);
+    for (i=0; i<=strlen(cuvant); i++)
+    {
+        if (cuvant[i]>=97 && cuvant[i]<=122)
+        {
+            cuvant[i] = cuvant[i] - 32;
+        }
+    }
+    printf("%s", cuvant);
+}

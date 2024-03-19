@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int a, b;
+float Acerc, Adrept;
+
+int main()
+{
+	printf("Introduceti doua numere intregi: ");
+	scanf_s("%d %d", &a, &b);
+	Acerc = (a * a) * 3.14;
+	printf("Aria cercrului este %.1f\n", Acerc);
+	Adrept = a * b;
+	printf("Aria dreptunghiului este %.1f\n", Adrept);
+}

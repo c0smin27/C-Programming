@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <math.h>
+
+int a, b, c;
+float p, Aria;
+
+int main()
+{
+    printf("Introduceti masura laturilor triunghiului: \n");
+	scanf_s("%d %d %d", &a, &b, &c);
+	p = (a + b + c) / 2;
+	Aria = sqrt(p * (p - a) * (p - b) * (p - c));
+    printf("Aria triunghiului este: \n");
+	printf("%.2f \n", Aria);
+    return 0;
+}

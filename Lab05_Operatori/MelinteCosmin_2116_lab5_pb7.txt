@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+float a, b, plus, minus, ori, div, minim;
+
+int main()
+{
+	printf("Introduceti doua numere reale: ");
+	scanf_s("%f %f", &a, &b);
+	plus = a + b;
+	printf("\nAdunare: %f, rotunjit devine %d\n\n", plus, (int)plus);
+	minus = a - b;
+	printf("Scadere: %f, rotunjit devine %d\n\n", minus, (int)minus);
+	ori = a * b;
+	printf("Inmultire: %f, rotunjit devine %d\n\n", ori, (int)ori);
+	div = a / b;
+	printf("Impartire: %f, rotunjit devine %d\n\n", div, (int)div);
+	minim = a;
+	if (minim > b) minim = b;
+	printf("Minimul dintre numerele citie este: %f\n\n", minim);
+}

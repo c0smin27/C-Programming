@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+unsigned conversie(unsigned int a);
+unsigned int x[32];
+
+void main()
+{
+	unsigned int a, max;
+	printf("\n Introduceti o voloare intreaga: ");
+	scanf_s("%d", &a);
+	printf("\n Numarul introdus este:\n %d - in baza 10\n", a);
+	max = conversie(a);
+	for (int i = 0;i <= max;i++)
+	{
+		printf(" %d", x[i]);
+	}
+	printf(" - in baza 2\n");
+	printf(" %o - in baza 8\n", a);
+	printf(" %x - in baza 16\n", a);
+}
+
+unsigned conversie(unsigned int a)
+{
+	unsigned short int aux[32], p = -1;
+	while (a > 0)
+	{
+		aux[++p] = a % 2;
+		a /= 2;
+	}
+	for (int i = 0; i <= p; i++)
+	{
+		x[p - i] = aux[i];
+	}
+	return p;
+}
