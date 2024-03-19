@@ -1,0 +1,36 @@
+
+#include <stdio.h>
+#define maxim 10
+
+int ordCresc(int x[]);
+
+int main()
+{
+    int x[maxim], i;
+    printf("Introduceti zece valori intregi:\n\n");
+    for(i=0;i<10;i++)
+    {
+        printf("valoarea %d = ", i+1);
+        scanf_s("%d", &x[i]);
+    }
+    ordCresc(x);
+}
+
+int ordCresc(int x[])
+{
+    int aux, i, j;
+    for(i=0;i<10;i++)
+    for(j=9;j>i;j--)
+    if(x[j]<x[j-1])
+    {
+        aux = x[j];
+        x[j] = x[j-1];
+        x[j-1] = aux;
+    }
+    printf("\nSirul ordonat crescator este: ");
+    for(i=0;i<10;i++)
+    {
+        printf("%d ",x[i]);
+    }
+    printf("\n\n");
+}

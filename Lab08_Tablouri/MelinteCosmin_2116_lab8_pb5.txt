@@ -1,0 +1,16 @@
+#include stdio.h
+
+int main()
+{
+    char nume[255], prenume[255];
+    printf(Introduceti numele si prenumele folosind caractere micinn);
+    printf(Nume );
+    scanf_s(%s, &nume);
+    printf(Prenume );
+    scanf_s(%s, &prenume);
+    if(nume[0]=97)
+    nume[0]=nume[0]-32;
+    if(prenume[0]=97)
+    prenume[0]=prenume[0]-32;
+    printf(n%stt%snn, nume, prenume);
+}

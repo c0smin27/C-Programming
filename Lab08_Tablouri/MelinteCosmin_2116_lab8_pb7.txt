@@ -1,0 +1,61 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap(float v[3][3], int c1, int c2);
+
+int main()
+{
+        float v[3][3], sum, s[3];
+        printf("Introduceti elementele matricei de dimensiunea 3x3: \n\n");
+        for(int i=0; i<3; i++)
+        for(int j=0; j<3; j++)
+        {
+            printf("Elementul %d %d: ", i+1, j+1);
+            scanf_s("%f", &v[i][j]);
+        }
+        for(int j=0; j<3; j++)
+        {
+            sum = 0;
+            for(int i=0; i<3; i++)
+            sum = sum + v[i][j];
+            s[j] = sum;
+        }
+        printf("\n");
+        if(s[0]>s[1])
+        {
+            if(s[0]>s[2])
+            {
+                swap(v,0,2);
+                if(s[1]<s[2])
+                swap(v,0,1);
+            }
+            else
+            {
+                swap(v,0,1);
+            }
+        }
+        else
+        {
+            if(s[1]>s[2])
+            swap(v,1,2);
+        }
+        for(int i=0; i<3; i++)
+        {
+            printf("\n");
+            for(int j=0; j<3; j++)
+            printf("%f ", v[i][j]);
+        }
+        printf("\n\n");
+}
+
+void swap(float v[3][3], int c1, int c2)
+{
+    float aux;
+    for(int i=0; i<3; i++)
+    {
+        aux = v[i][c1];
+        v[i][c1] = v[i][c2];
+        v[i][c2] = aux;
+    }
+}

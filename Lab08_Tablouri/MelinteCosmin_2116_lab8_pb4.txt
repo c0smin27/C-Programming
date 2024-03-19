@@ -1,0 +1,42 @@
+
+#include <stdio.h>
+
+int compare(char sir[], char pw[]);
+
+int main(void)
+{
+    char pw[] = "cosmin";   //introduceti parola dorita intre " "
+    char sir[255];
+    int aux, contor = 0;
+    printf("Introduceti parola: ");
+    do
+    {
+        scanf_s("%s", &sir);
+        aux = compare(sir,pw);
+        if(aux)
+        {
+            printf("\nParola este corecta. Incercari esuate: %d\n\n", contor);
+            break;
+        }
+        else
+        {
+            printf("Introduceti parola: ");
+        }
+        contor++;
+    }
+    while(1);
+}
+
+int compare(char sir[],char pw[])
+{
+    int i=0;
+    while(sir[i]!=0 && pw[i]!=0)
+    {
+        if(sir[i]!=pw[i])
+        return 0;
+        i++;
+    }
+    if(sir[i]!=0 || pw[i]!=0)
+    return 0;
+    return 1;
+}

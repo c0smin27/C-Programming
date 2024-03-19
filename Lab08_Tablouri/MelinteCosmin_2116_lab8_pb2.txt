@@ -1,0 +1,33 @@
+
+#include <stdio.h>
+#define maxim 100
+
+int elementMinim(int x[],int n);
+
+int main()
+{
+    int x[maxim];
+    int n, i, minim;
+    printf("Introduceti numarul de elemente ale vectorului: ");
+    scanf_s("%d", &n);
+    printf("\nIntroduceti elementele vectorului\n\n");
+    for(i=0;i<n;i++)
+    {
+        printf("elementul %d: ", i+1);
+        scanf_s("%d", &x[i]);
+    }
+    minim = elementMinim(x,n);
+    if(minim==-1)
+        printf("\nNu exista numere pozitive in sirul dat!\n\n");
+    else
+        printf("\nCel mai mic element pozitiv din sir este: %d\n\n", minim);
+}
+
+int elementMinim(int x[],int n)
+{
+    int min=-1, i;
+    for(i=0;i<n;i++)
+    if(x[i]>0 && (min==-1 || x[i]<min))
+    min = x[i];
+    return min;
+}

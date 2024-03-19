@@ -1,0 +1,72 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#define max 100
+
+void citire(int v[max][max], int n, int m);
+void pozElemPARE(int v[max][max], int n, int m);
+void sumaImpare(int v1[max][max], int v2[max][max], int n, int m);
+void sumaMatricelor(int v1[max][max], int v2[max][max], int n, int m);
+
+int main()
+{
+    int v1[max][max], v2[max][max], n, m;
+    printf("Introduceti dimensiunea matricei 1: ");
+    scanf_s("%d", &n);
+    printf("Introduceti dimensiunea matricei 2: ");
+    scanf_s("%d", &m);
+    printf("\nIntroduceti elementele matricei 1:\n");
+    citire(v1,n,m);
+    printf("\nIntroduceti elementele matricei 2:\n");
+    citire(v2,n,m);
+    printf("\nPozitiile elementelor pare din matricea 1: ");
+    pozElemPARE(v1,n,m);
+    printf("\n\nPozitiile elementelor pare din matricea 2: ");
+    pozElemPARE(v2,n,m);
+    sumaImpare(v1,v2,n,m);
+    printf("\n\nSuma matricelor este:");
+    sumaMatricelor(v1,v2,n,m);
+    printf("\n\n");
+}
+
+void citire(int v[max][max], int n, int m)
+{
+    for(int i=0; i<n; i++)
+    for(int j=0; j<m; j++)
+    {
+        printf("Elementul %d %d: ", i+1, j+1);
+        scanf_s("%d", &v[i][j]);
+    }
+}
+
+void pozElemPARE(int v[max][max], int n, int m)
+{
+    for(int i=0; i<n; i++)
+    for(int j=0; j<m; j++)
+    if(v[i][j]%2==0)
+    printf("\n %d %d", i+1, j+1);
+}
+
+void sumaImpare(int v1[max][max], int v2[max][max], int n, int m)
+{
+    int sum=0;
+    for(int i=0; i<n; i++)
+    for(int j=0; j<m; j++)
+    {
+        if(v1[i][j]%2)
+        sum=sum+v1[i][j];
+        if(v2[i][j]%2)
+        sum=sum+v2[i][j];
+    }
+    printf("\n\nSuma elementelor impare a celor doua matrici este: %d", sum);
+}
+
+void sumaMatricelor(int v1[max][max], int v2[max][max], int n, int m)
+{
+    for(int i=0; i<n; i++)
+    {
+        printf("\n");
+        for(int j=0; j<m; j++)
+        printf(" %d", v1[i][j]+v2[i][j]);
+    }
+}
