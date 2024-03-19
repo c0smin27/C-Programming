@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int n, cif;
+int main()
+{
+	printf("Introduceti un numar intreg: ");
+	scanf_s("%d", &n);
+	if (n == 0)
+	cif = 1;
+	else
+	{
+		while (n)
+		{
+			cif++;
+			n = n / 10;
+		}
+	}
+	printf("Numarul are %d cifre.\n", cif);
+	return 0;
+}

@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int x, y, p=1, i;
+int main()
+{
+	printf("Introduceti un numar intreg: ");
+	scanf_s("%d", &x);
+	printf("Introduceti puterea la care sa fie ridicat numarul: ");
+	scanf_s("%d", &y);
+	for (i=0; i<y; i++)
+	{
+		p = p * x;
+	}
+	printf("\n%d la puterea %d este %d\n", x, y, p);
+}

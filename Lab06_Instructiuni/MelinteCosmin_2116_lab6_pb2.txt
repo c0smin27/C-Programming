@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <math.h>
+
+int numar;
+int main()
+{
+    printf("Introduceti un numar intreg: ");
+    scanf_s("%d", &numar);
+    if ((int)sqrt(numar) == sqrt(numar))
+        printf("Numarul este patrat perfect\n");
+    else
+        printf("Numarul NU este patrat perfect\n");
+}

@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int n;
+long long f=1;
+int main()
+{
+    printf("Introduceti un numar intreg: ");
+    scanf_s("%d", &n);
+    for (int i = 1; i <= n; ++i)
+    {
+        f = f * i;
+    }
+    printf("\n%d! = %d\n", n, f);
+}

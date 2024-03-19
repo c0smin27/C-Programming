@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+void main()
+{
+	int x, aux, prim;
+	printf("\n Introduceti un numar natural: ");
+	scanf_s("%d", &x);
+	if (x > 2)
+	{
+		printf("\n Numere prime mai mici decat %d: ", x);
+		printf("2");
+		aux = 2;
+	}
+	else
+	{
+		printf("\n Nu exista numere prime mai mici decat %d!\n\n", x);
+		return;
+	}
+	for (int d = 3;d < x;d += 2)
+	{
+		prim = 1;
+		for (int i = 3;i <= (int)sqrt((float)d);i += 2)
+		{
+			if (d % i == 0)
+			{
+				prim = 0;
+				break;
+			}
+		}
+		if (prim)
+		{
+			printf(" %d", d);
+			aux = d;
+		}
+	}
+	printf("\n\n Cel mai mare numar prim mai mic decat %d este: %d\n\n", x, aux);
+}

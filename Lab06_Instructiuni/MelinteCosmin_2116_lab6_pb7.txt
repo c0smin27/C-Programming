@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int n, i;
+int main()
+{
+    printf("Introduceti un numar intreg: ");
+    scanf_s("%d", &n);
+    printf("Divizorii numarului %d sunt: ", n);
+    for (i = 1; i <= n; i++)
+    if (n % i == 0)
+    printf("%d ", i); 
+    printf("\n");
+    return 0;
+}

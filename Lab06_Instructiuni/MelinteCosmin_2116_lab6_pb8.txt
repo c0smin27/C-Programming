@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int a, b, cat, i=0;
+int main()
+{
+	printf("Introduceti doua numere intregi:\n");
+	printf("a = ");
+	scanf_s("%d", &a);
+	printf("b = ");
+	scanf_s("%d", &b);
+	while (a >= b)
+	{
+		i++;
+		a = a - b;
+	}
+	printf("Catul impartirii lui a la b este %d\n", i);
+}

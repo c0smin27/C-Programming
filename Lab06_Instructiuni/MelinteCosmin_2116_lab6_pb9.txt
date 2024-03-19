@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int x, y, p=0, i;
+int main()
+{
+	printf("Introduceti doua numere intregi: ");
+	scanf_s("%d %d", &x, &y);
+	for (i = 0; i < y; i++)
+	p = p + x;
+	printf("Produsul celor doua numere este: %d\n", p);
+}

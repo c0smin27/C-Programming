@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <conio.h>
+
+int n, aux=0;
+float numere, sum=0;
+int main()
+{
+    printf("Introduceti un numar intreg n: ");
+    scanf_s("%d", &n);
+    printf("\n");
+    while (sum <= n)
+    {
+        printf("Introduceti un numar real: ");
+        scanf_s("%f", &numere);
+        sum = sum + numere;
+        aux++;
+        if (sum > n)
+        {
+            break;
+        }
+    }
+    printf("\nSuma numerelor citite este %.2f.\n", sum);
+    printf("S-au citit %d numere.\n", aux);
+    return 0;
+}
