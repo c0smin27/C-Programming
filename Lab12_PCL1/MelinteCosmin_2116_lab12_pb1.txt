@@ -1,0 +1,95 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define end "AAA"
+
+struct student {
+	char nume[255], prenume[255], tara[255];
+	int grupa, an;
+};
+
+struct lista {
+	struct student* p;
+	struct lista* next;
+};
+
+lista* alocareLista(void);
+student* alocareStudent(void);
+void dealocare(struct lista* p);
+
+void main()
+{
+	struct lista* start, * p;
+	char nume[50], tara[50];
+	int grupa;
+	start = alocareLista();
+	p = start;
+	printf("\n Introduceti datele studentilor:\n");
+	printf("\n\tNume: ");
+	scanf("%s", nume);
+	while (strcmp(nume, end) != 0)
+	{
+		p->p = alocareStudent();
+		strcpy(p->p->nume, nume);
+		printf("\tPrenume: ");
+		scanf("%s", p->p->prenume);
+		printf("\tTara: ");
+		scanf("%s", p->p->tara);
+		printf("\tGrupa: ");
+		scanf("%d", &p->p->grupa);
+		printf("\tAnul nasterii: ");
+		scanf("%d", &p->p->an);
+		p->next = alocareLista();
+		p = p->next;
+		printf("\n\tNume: ");
+		scanf("%s", nume);
+	}
+	printf("\n ----------------[end]---------------- \n");
+	p->next = NULL;
+	printf("\n Introduceti numarul grupei pentru care vreti sa aflati numarul strain de studenti: ");
+	scanf("%d", &grupa);
+	printf(" Introduceti tara de origine: ");
+	scanf("%s", tara);
+	p = start;
+	printf("\n\n Studentii din grupa %d care nu sunt din %s:\n\n", grupa, tara);
+	while (p->next)
+	{
+		if (p->p->grupa == grupa)
+			if (strcmp(p->p->tara, tara) != 0)
+				printf("\t Nume: %s || Prenume: %s || Tara: %s || Grupa: %d || Anul nasterii: %d \n",
+					p->p->nume, p->p->prenume, p->p->tara, p->p->grupa, p->p->an);
+		p = p->next;
+	}
+	dealocare(start);
+}
+
+struct lista* alocareLista(void)
+{
+	struct lista* p;
+	if (!(p = new struct lista))
+	{
+		printf("\n Eroare de alocare!\n\n");
+		return 0;
+	}
+	return p;
+}
+
+student* alocareStudent(void)
+{
+	struct student* p;
+	if (!(p = new struct student))
+	{
+		printf("\n Eroare de alocare!\n\n");
+		return 0;
+	}
+	return p;
+}
+
+void dealocare(struct lista* p)
+{
+	if (p->next)
+	dealocare(p->next);
+	delete p->p;
+	delete p->next;
+}
