@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+	int n=0;
+	char* sir1;
+	char* sir2;
+	printf("\n Specificati de cate ori doriti sa repetati \n operatia de concatenare a doua siruri: ");
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++)
+	{
+		sir1 = (char*)malloc(100 * sizeof(char));
+		sir2 = (char*)malloc(100 * sizeof(char));
+		printf("\n Introduceti sirul 1: ");
+		scanf("%s", sir1);
+		printf(" Introduceti sirul 2: ");
+		scanf("%s", sir2);
+		char* sir3;
+		sir3 = (char*)malloc(200 * sizeof(char));
+		sir3 = sir1;
+		strncat(sir3, sir2, strlen(sir2));
+		printf("\n Sirul rezultat din concatenarea celor anterioare este: %s\n", sir3);
+	}
+	printf("\n");
+	return 0;
+}

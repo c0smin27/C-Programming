@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <malloc.h>
+
+void main()
+{
+	int n, m, i, j;
+	char* a;
+	printf("\n Introduceti numarul de siruri: ");
+	scanf_s("%d", &n);
+	printf("\n Introduceti dimensiunea sirurilor de caractere: ");
+	scanf_s("%d", &m);
+	for (i = 0; i < n; i++)
+	{
+		a = (char*)malloc(n * sizeof(char));
+		printf("\n Introduceti cele %d caractere:\n", m);
+		for (j = 0; j < m; j++)
+		{
+			printf(" a[%d] = ", j + 1);
+			scanf("%s", a);
+		}
+		if (a)
+			free(a);
+	}
+}
