@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+char* stergeDuplicate(char* x);
+
+int main()
+{
+    char s[300];
+    printf("Introduceti un sir de caractere: \n");
+    gets_s(s);
+    printf("\nSirul fara elementele care se repeta este: \n%s\n\n", stergeDuplicate(s));
+}
+
+char* stergeDuplicate(char* x)
+{
+    int str[300] = { 0 };
+    char* start = x;
+    while (*x)
+    {
+        if (str[*x])
+        {
+            memmove(x, x + 1, strlen(x));
+        }
+        else
+        {
+            str[*x] = 1;
+            x++;
+        }
+    }
+    return start;
+}
