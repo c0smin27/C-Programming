@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include<string.h>
+
+int main()
+{
+	char sir[10];
+	gets_s(sir);
+	printf("%s\n", _strrev(sir));
+}
