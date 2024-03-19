@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+float a, b, c, aria, diagonala;
+int main()
+{
+	printf("Introduceti trei numere reale: \n");
+	printf("a = ");
+	scanf_s("%f", &a);
+	printf("b = ");
+	scanf_s("%f", &b);
+	printf("c = ");
+	scanf_s("%f", &c);
+	aria = a * b;
+	printf("\nAria dreptunghiului cu laturile a si b este %f.\n", aria);
+	diagonala = sqrt(a * a + b * b);
+	if (c == diagonala)
+		printf("\nDiagonala dreptunghiului ESTE egala cu c.\n");
+	else
+		printf("\nDiagonala dreptunghiului NU este egala cu c.\n");
+}
