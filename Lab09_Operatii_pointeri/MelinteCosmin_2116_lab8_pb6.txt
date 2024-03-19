@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() 
+{
+    char str[1000], ch;
+    int count = 0;
+
+    printf("Introduceti un sir de caractere: ");
+    fgets(str, sizeof(str), stdin);
+
+    printf("\nIntroduceti litera a carei aparitii doriti sa o aflati: ");
+    scanf_s("%c", &ch);
+
+    for (int i = 0; str[i] != '\0'; ++i)
+    {
+        if (ch == str[i])
+            ++count;
+    }
+
+    printf("\nLitera %c apare de %d ori.\n\n", ch, count);
+    return 0;
+}

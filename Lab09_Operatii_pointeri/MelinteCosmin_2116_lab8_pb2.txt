@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+bool compara(char* str1, char* str2);
+
+int main()
+{
+	char str1[300];
+	char str2[300];
+	printf("Introduceti doua siruri de caractere:\n");
+	printf("\nSirul1: "); gets_s(str1);
+	printf("Sirul2: "); gets_s(str2);
+
+	if (compara(str1, str2) == 1)
+		printf("\nElementele sirurilor au aceeasi oridne si sunt aceleasi.\n\n");
+	else
+		printf("\nElementele sirurilor NU au aceeasi oridne / NU sunt aceleasi.\n\n");
+}
+
+bool compara(char* str1, char* str2)
+{
+	while (*str1 == *str2)
+	{
+		if (*str1 == '\0' && *str2 == '\0')
+			return 1;
+		str1++;
+		str2++;
+	}
+	return 0;
+}
