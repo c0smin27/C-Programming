@@ -1,0 +1,91 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define end "end"
+
+struct angajat {
+	char nume[255], prenume[255], ocupatie[255], data_nasterii[255], sectie[255];
+};
+
+struct lista {
+	struct angajat* p;
+	struct lista* next;
+};
+
+lista* alocareLista(void);
+angajat* alocare(void);
+void dealocare(struct lista* p);
+
+void main()
+{
+	struct lista* start, * p;
+	char nume[50], ocupatie[50], sectie[50];
+	start = alocareLista();
+	p = start;
+	printf("\n Pentru a finaliza introducerea datelor angajatilor tastati 'end' in campul 'nume':\n");
+	printf("\n Introduceti datele angajatilor:\n");
+	printf("\n\tNume: ");
+	scanf("%s", nume);
+	while (strcmp(nume, end) != 0)
+	{
+		p->p = alocare();
+		strcpy(p->p->nume, nume);
+		printf("\tPrenume: ");
+		scanf("%s", p->p->prenume);
+		printf("\tOcupatie: ");
+		scanf("%s", p->p->ocupatie);
+		printf("\tData nasterii: ");
+		scanf("%s", &p->p->data_nasterii);
+		printf("\tSectie: ");
+		scanf("%s", &p->p->sectie);
+		p->next = alocareLista();
+		p = p->next;
+		printf("\n\tNume: ");
+		scanf("%s", nume);
+	}
+	printf("\n ----------------[end]---------------- \n");
+	p->next = NULL;
+	printf("\n Introduceti ocupatia pentru care vreti sa aflati datele angajatilor: ");
+	scanf("%s", ocupatie);
+	p = start;
+	printf("\n\n Angajatii cu ocupatia de %s:\n\n", ocupatie);
+	while (p->next)
+	{
+			if (strcmp(p->p->ocupatie, ocupatie) == 0)
+				printf("\t Nume: %s || Prenume: %s || Ocupatie: %s || Data nasterii: %s || Sectie: %s \n",
+					p->p->nume, p->p->prenume, p->p->ocupatie, p->p->data_nasterii, p->p->sectie);
+		p = p->next;
+	}
+	dealocare(start);
+}
+
+struct lista* alocareLista(void)
+{
+	struct lista* p;
+	if (!(p = new struct lista))
+	{
+		printf("\n Eroare de alocare!\n\n");
+		return 0;
+	}
+	return p;
+}
+
+angajat* alocare(void)
+{
+	struct angajat* p;
+	if (!(p = new struct angajat))
+	{
+		printf("\n Eroare de alocare!\n\n");
+		return 0;
+	}
+	return p;
+}
+
+void dealocare(struct lista* p)
+{
+	if (p->next)
+		dealocare(p->next);
+	delete p->p;
+	delete p->next;
+}

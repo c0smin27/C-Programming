@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+struct nume {
+	int nume[255], prenume[255];
+};
+
+void afis1(struct nume p);
+void afis2(struct nume* p);
+
+void main()
+{
+	struct nume p, *pp;
+	pp = &p;
+	printf("\n\tNume: ");
+	scanf("%s", p.nume);
+	printf("\tPrenume: ");
+	scanf("%s", p.prenume);
+	printf("\n Afisare struct ca valoare: ");
+	afis1(p);
+	printf("\n\n Afisare struct folosind pointeri: ");
+	afis2(pp);
+	printf("\n\n");
+}
+
+void afis1(struct nume p)
+{
+	printf("\n\tNume: %s \n\tPrenume: %s", p.nume, p.prenume);
+	return;
+}
+
+void afis2(struct nume* p)
+{
+	printf("\n\tNume: %s \n\tPrenume: %s", p->nume, p->prenume);
+	return;
+}

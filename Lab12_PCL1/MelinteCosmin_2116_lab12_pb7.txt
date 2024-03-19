@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+struct student {
+	char nume[225], prenume[225], sex[225];
+};
+
+void main()
+{
+	struct student* p;
+	int n, i, aux = 0;
+
+	printf("\n Introduceti numarul de studenti: ");
+	scanf("%d", &n);
+	if (!(p = new struct student[n]))
+	{
+		printf("\n Eroare de alocare!\n\n");
+		return;
+	}
+	printf("\n Introduceti datele studentilor: ");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n\tNume: ");
+		scanf("%s", (p + i)->nume);
+		printf("\tPrenume: ");
+		scanf("%s", (p + i)->prenume);
+		printf("\tSex(m/f): ");
+		scanf("%s", (p + i)->sex);
+	}
+	for (i = 0; i < n; i++)
+	{
+		if (*(p + i)->sex == 'f')
+			aux++;
+	}
+	if (aux > 0)
+		printf("\n Exista %d studente.\n\n", aux);
+	else
+		printf("\n Nu exista nicio studenta!\n\n");
+	delete[]p;
+}
