@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int calculOra(int, int, int, int);
+int calculMin(int, int, int, int);
+
+int main()
+{
+	int ora1, min1, ora2, min2;
+	int ora, minute;
+
+	printf("\n Introduceti orele si minutele in formatul: hh mm\n");
+	printf("\n Trenul pleaca din Cluj la: ");
+	scanf_s("%d %d", &ora1, &min1);
+
+	printf(" Trenul ajunge in Brasov la: ");
+	scanf_s("%d %d", &ora2, &min2);
+	
+	ora = calculOra(ora1, min1, ora2, min2);
+	minute = calculMin(ora1, min1, ora2, min2);
+	
+	printf("\n Durata calatoriei a fost de: %d ore si %d minute.\n\n\n", ora, minute);
+}
+
+int calculOra(int ora1, int min1, int ora2, int min2)
+{
+	long total = 0, ore;
+	if (ora1 > ora2)
+	{
+		total = total + 86400 - ((ora1 * 3600) + (min1 * 60));
+		total = total + ((ora2 * 3600) + (min2 * 60));
+	}
+	else
+	{
+		total = ((ora2 * 3600) + (min2 * 60)) - ((ora1 * 3600) + (min1 * 60));
+	}
+	ore = total / 3600;
+	return ore;
+}
+
+int calculMin(int ora1, int min1, int ora2, int min2)
+{
+	long total = 0, ore, minute;
+	if (ora1 > ora2)
+	{
+		total = total + 86400 - ((ora1 * 3600) + (min1 * 60));
+		total = total + ((ora2 * 3600) + (min2 * 60));
+	}
+	else
+	{
+		total = ((ora2 * 3600) + (min2 * 60)) - ((ora1 * 3600) + (min1 * 60));
+	}
+	ore = total / 3600;
+	total = total - ore * 3600;
+	minute = total / 60;
+	return minute;
+}

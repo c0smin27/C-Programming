@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+float ipotenuza(float, float);
+float perimetru(float, float, float);
+
+int main()
+{
+	float c1, c2, ip, perim;
+
+	printf("\n Introduceti valoarea catetei 1 a triunghiului dreptunghic: C1 = ");
+	scanf_s("%f", &c1);
+	printf(" Introduceti valoarea catetei 2 a triunghiului dreptunghic: C2 = ");
+	scanf_s("%f", &c2);
+
+	ip = ipotenuza(c1, c2);
+	perim = perimetru(c1, c2, ip);
+
+	printf("\n Ipotenuza triunghiului dreptunghic este: %f", ip);
+	printf("\n Perimetrul triunghiului dreptunghic este: %f\n\n", perim);
+}
+
+float ipotenuza(float x, float y)
+{
+	return sqrt((x * x) + (y * y));
+}
+
+float perimetru(float x, float y, float z)
+{
+	return (x + y + z);
+}

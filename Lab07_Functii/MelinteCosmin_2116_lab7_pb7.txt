@@ -1,0 +1,29 @@
+#include<stdio.h>
+#define pi 3.14159265359
+
+float arie(float);
+float lungime(float);
+
+int main()
+{
+	float r;
+	printf("\n Introduceti un numar intreg:\n");
+	printf("\n Raza cercului = ");
+	scanf_s("%f", &r);
+	printf("\n Lungimea cercului este: %10f", lungime(r));
+	printf("\n Aria cercului este: %10f\n\n", arie(r));
+}
+
+float lungime(float x)
+{
+	float Lungimea;
+	Lungimea = (2 * pi * x);
+	return Lungimea;
+}
+
+float arie(float x)
+{
+	float Aria;
+	Aria = (pi * (x * x));
+	return Aria;
+}

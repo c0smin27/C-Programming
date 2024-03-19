@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+float r_serie(float, float);
+float r_paralel(float, float);
+float c_serie(float, float);
+float c_paralel(float, float);
+
+int main()
+{
+	float r1, r2, r_s, r_p;
+	float c1, c2, c_s, c_p;
+
+	printf("\n Introduceti valoarea rezistentei R1: ");
+	scanf_s("%f", &r1);
+	printf(" Introduceti valoarea rezistentei R2: ");
+	scanf_s("%f", &r2);
+
+	printf("\n Introduceti valoarea capacitatii C1: ");
+	scanf_s("%f", &c1);
+	printf(" Introduceti valoarea capacitatii C2: ");
+	scanf_s("%f", &c2);
+
+	r_s = r_serie(c1, c2);
+	r_p = r_paralel(c1, c2);
+
+	c_s = c_serie(r1, r2);
+	c_p = c_paralel(r1, r2);
+
+	printf("\n Rezistenta echivalenta in serie este: %10.3f", r_s);
+	printf("\n Rezistenta echivalenta in paralel este: %8.3f\n", r_p);
+
+	printf("\n Capacitatea echivalenta in serie este:\n %-6.4f\n", c_s);
+	printf(" Capacitatea echivalenta in paralel este:\n %-6.4f\n\n", c_p);
+}
+
+float r_serie(float x, float y)
+{
+	return x + y;
+}
+
+float r_paralel(float x, float y)
+{
+	return (x * y) / (x + y);
+}
+
+float c_serie(float x, float y)
+{
+	return 1 / ((1 / x) + (1 / y));
+}
+
+float c_paralel(float x, float y)
+{
+	return (x + y);
+}

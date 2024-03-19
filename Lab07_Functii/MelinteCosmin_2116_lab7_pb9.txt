@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+float calcul(float, float, float);
+
+int main()
+{
+	float v1, v2, d;
+
+	printf("\n Introduceti viteza masinii 1 (km/h) = ");
+	scanf_s("%f", &v1);
+	
+	printf(" Introduceti viteza masinii 2 (km/h) = ");
+	scanf_s("%f", &v2);
+	
+	printf(" Introduceti distanta dintre cele doua masini (km) = ");
+	scanf_s("%f", &d);
+
+	float c = calcul(v1, v2, d);
+	printf("\n Timpul dupa care se intalnesc cele doua masini este de %.f minute.\n\n", c);
+}
+
+float calcul(float v1, float v2, float d)
+{
+	float final;
+	final = d / (v1 + v2);
+	final = final * 60;
+	return final;
+}

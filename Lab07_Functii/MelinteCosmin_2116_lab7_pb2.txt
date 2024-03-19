@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+float serie(float, float);
+float paralel(float, float);
+
+int main()
+{
+	float c1, c2, s, p;
+
+	printf("\n Introduceti valoarea capacitatii C1: ");
+	scanf_s("%f", &c1);
+	
+	printf(" Introduceti valoarea capcacitatii C2: ");
+	scanf_s("%f", &c2);
+	
+	s = serie(c1, c2);
+	p = paralel(c1, c2);
+	
+	printf("\n Capacitatea echivalenta in serie este:\n %-6.4f\n", s);
+	printf("\n Capacitatea echivalenta in paralel este:\n %-6.4f\n\n", p);
+}
+
+float serie(float x, float y)
+{
+	return 1 / ((1 / x) + (1 / y));
+}
+
+float paralel(float x, float y)
+{
+	return (x + y);
+}

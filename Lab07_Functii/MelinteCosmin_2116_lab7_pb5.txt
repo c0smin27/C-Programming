@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+float ecuatie(float x, float y);
+
+int main()
+{
+	int a, b;
+	float ec;
+
+	printf("\n Introduceti doua valori intregi:\n");
+	printf(" a = ");
+	scanf_s("%d", &a);
+	
+	if (a == 0)
+	{
+		printf("\n Introduceti un numar diferit de 0!\n");
+		return 0;
+	}
+
+	printf(" b = ");
+	scanf_s("%d", &b);
+	
+	ec = ecuatie(a, b);
+	printf("\n Ecuatia este de forma:\n %dx + %d = 0", a, b);
+	printf("\n x = %f\n\n", ec);
+}
+
+float ecuatie(float a, float b)
+{
+	return -(b / a);
+}
