@@ -1,3 +1,3 @@
 # C Programming
 
-## Various exercises and applications for the C programming language
+## A collection of various exercises and applications for the C programming language.
